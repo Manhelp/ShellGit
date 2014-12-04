@@ -7,14 +7,14 @@ E_NOTROOT=67	#非根用户将以error退出
 
 
 
-＃当然要使用根用户来运行
-if["$UID" -ne "$ROOT_UID"]
+#当然要使用根用户来运行
+if [ "$UID" -ne "$ROOT_UID" ]
 then
 	echo "Must be root to run this script."
 	exit $E_NOTROOT
 fi
 
-if[-n "$1"]	#测试是否有命令行参数（非空）
+if [ -n "$1" ]	#测试是否有命令行参数（非空）
 then
 	lines=$1
 else
@@ -28,13 +28,13 @@ fi
 # "" ) lines=50;;
 # *[!0-9]*)echo "Uaage:`basename $0` file-to-cleanup";exit $E_WRONGARGS;;
 # * )lines=$1;;
-esac
+# esac
 #* 直到"Loops"的章节才会对上边的内容进行详细的描述。
 
 
 cd $LOG_DIR
 
-if[`pwd` != "$LOG_DIR"] #或者if["$PWD" != "$LOG_DIR"]
+if [ `pwd` != "$LOG_DIR" ] #或者if["$PWD" != "$LOG_DIR"]
 	#不在/var/log中？
 then
 	ceho "Can't change to $LOG_DIR."
