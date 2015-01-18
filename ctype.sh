@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a=1
+a=2
 let --a && echo " TRUE" || echo " FALSE"
 b=1
 let b-- && echo " TRUE" || echo " FALSE"
